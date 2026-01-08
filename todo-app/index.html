@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>To-Do List</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('tasks')">Tasks</a></li>
+                <li><a href="#" onclick="showSection('categories')">Categories</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+         <section id="tasks" class="section active">
+    <h1>Tasks</h1>
+    <button class="btn" onclick="showForm('task-form')">Add Task</button>
+    <div id="task-list" class="list"></div>
+    <form id="task-form" class="form card" style="display:none;">
+        <h2 id="task-form-title">Add Task</h2>
+        <input type="hidden" id="task-id" name="id">  <!-- Added name="id" -->
+        <label>Title: <input type="text" id="task-title" name="title" required></label>  <!-- Added name="title" -->
+        <label>Description: <textarea id="task-description" name="description"></textarea></label>  <!-- Added name="description" -->
+        <label>Status: <select id="task-status" name="status"><option value="pending">Pending</option><option value="completed">Completed</option></select></label>  <!-- Added name="status" -->
+        <label>Due Date: <input type="date" id="task-due-date" name="due_date"></label>  <!-- Added name="due_date" -->
+        <label>Category: <select id="task-category" name="category_id" required></select></label>  <!-- Added name="category_id" -->
+        <button type="submit" class="btn">Save</button>
+        <button type="button" onclick="hideForm('task-form')" class="btn">Cancel</button>
+    </form>
+</section>
+          <section id="categories" class="section">
+    <h1>Categories</h1>
+    <button class="btn" onclick="showForm('category-form')">Add Category</button>
+    <div id="category-list" class="list"></div>
+    <form id="category-form" class="form card" style="display:none;">
+        <h2 id="category-form-title">Add Category</h2>
+        <input type="hidden" id="category-id" name="id">  <!-- Added name="id" -->
+        <label>Name: <input type="text" id="category-name" name="name" required></label>  <!-- Added name="name" -->
+        <label>Description: <textarea id="category-description" name="description"></textarea></label>  <!-- Added name="description" -->
+        <button type="submit" class="btn">Save</button>
+        <button type="button" onclick="hideForm('category-form')" class="btn">Cancel</button>
+    </form>
+</section>
+        </main>
+    </div>
+    <div id="loading" class="loading" style="display:none;">Loading...</div>
+    <div id="message" class="message" style="display:none;"></div>
+    <script src="js/script.js"></script>
+</body>
+</html>
